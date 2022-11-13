@@ -1,0 +1,27 @@
+<style>
+  .jumbotron {
+    min-height: 100vh;
+  }
+</style>
+
+<div class="jumbotron">
+  <h1>Vista de Productos</h1>
+  <br />
+
+  <div class="table-responsive">
+    <table class="table table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Foto</th>
+      </tr>
+      <% response.forEach(data => { %>
+      <tr>
+        <td><%= data.title %></td>
+        <td>$<%=data.price%></td>
+        <td><img src="<%=data.img%>" width="50" alt="not found" /></td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
+</div>
