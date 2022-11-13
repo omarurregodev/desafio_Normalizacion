@@ -24,7 +24,7 @@ io.on("connection", async (socket) => {
     console.log("el usuario con el id: " + socket.id + " se ha conectado.");
 
     let productos = await prod.listarAll();
-    let mensajes = await msg.getAll();
+    let mensajes = await msg.normalize();
 
     //CHAT SOCKETS
     socket.emit("messages", mensajes);

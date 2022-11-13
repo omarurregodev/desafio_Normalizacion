@@ -39,8 +39,10 @@ socket.on("messages", (data) => {
 })
 
 function showMessages(data) {
-    console.log("esta es la data", data);
-    const htmlMessages = data.map((msg) => {
+    alert(JSON.parse(data));
+    const dataMsg = JSON.parse(data);
+    console.log("esta es la data");
+    const htmlMessages = dataMsg.map((msg) => {
         return `
         <div>
             <strong style="color: blue;">${msg.author}</strong>
