@@ -19,9 +19,10 @@ class Mensaje {
         }
     }
 
-    async addMessage(msg) {
+    async createMsg(msg) {
         try {
             await this.mongodb(this.url)
+            alert("entro aqui", msg);
             const newMessage = await this.save(
                 new MessageModel({
                     author: {

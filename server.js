@@ -30,9 +30,14 @@ io.on("connection", async (socket) => {
     socket.emit("messages", mensajes);
     
     socket.on("new-message", async (data) => {
-        await msg.addMessage(data);
-        console.log(data);
-        io.sockets.emit("messages", mensajes)
+        try {
+            await msg.createMsg(data);
+            console.log("entro aqui   ",data);
+
+            io.sockets.emit("messages", mensajes)
+        } catch (err) {
+            console.log("error", err);
+        }
     });
 
     //PROD SOCKETS
